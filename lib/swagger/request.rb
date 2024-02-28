@@ -94,7 +94,7 @@ module Swagger
 
       p = p.sub("{format}", self.format.to_s)
       
-      URI.encode [Swagger.configuration.base_path, p].join("/").gsub(/\/+/, '/')
+      URI.encode_www_form_component([Swagger.configuration.base_path, p].join("/")).gsub(/\/+/, '/')
     end
   
     # Massage the request body into a state of readiness
